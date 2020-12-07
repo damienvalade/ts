@@ -6,12 +6,8 @@ interface Duck{
 class Donald implements Duck{
     name: string;
 
-    setname(name :string){
+    constructor(name :string) {
         this.name = name;
-    }
-
-    getname(){
-        return this.name;
     }
 
     swim(): string {
@@ -19,7 +15,6 @@ class Donald implements Duck{
     }
 }
 
-let donald = new Donald();
-donald.setname('Donald');
-console.log('Je suis ' + donald.getname() + ' et ' + donald.swim() + '.' +
+let donald = new Donald('Donald Duck');
+console.log('Je suis ' + donald.name + ' et ' + donald.swim() + '.' +
     '.');

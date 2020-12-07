@@ -1,18 +1,12 @@
 var Donald = /** @class */ (function () {
-    function Donald() {
-    }
-    Donald.prototype.setname = function (name) {
+    function Donald(name) {
         this.name = name;
-    };
-    Donald.prototype.getname = function () {
-        return this.name;
-    };
+    }
     Donald.prototype.swim = function () {
         return "je nage";
     };
     return Donald;
 }());
-var donald = new Donald();
-donald.setname('Donald');
-console.log('Je suis ' + donald.getname() + ' et ' + donald.swim() + '.' +
+var donald = new Donald('Donald Duck');
+console.log('Je suis ' + donald.name + ' et ' + donald.swim() + '.' +
     '.');
