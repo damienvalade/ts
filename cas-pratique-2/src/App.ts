@@ -1,3 +1,18 @@
+import { Product } from "./Product";
+import { Delivery, Details, MockDetails, MockDelivery } from "./data/MockProducts";
 
-// Importez les bons fichiers et définition et une fois que vous avez récupérez tous les products mappez ce dernier
-// pour extraire uniquement les produits dont l'option delivery est "special"
+let produits: Array<Product<Details,Delivery>> = []
+
+MockDetails.forEach( (item :Details) => {
+    let id = item.id;
+    let delivery = MockDelivery.find( (deliveryDetail ) => {
+        return deliveryDetail.id === id;
+    } )
+    produits.push(new Product<Details, Delivery>(item, delivery.delivery));
+})
+
+let produitSpecial = produits.filter(( item :Product<Details, Delivery>) =>{
+    return item.option === 'special';
+})
+
+console.log(produitSpecial);
